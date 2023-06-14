@@ -10,9 +10,12 @@ import java.util.Date;
 public class IncomingProduct {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY )
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private int quantity;
     private Date date;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_product")
+    private Product id_product;
 
 }
